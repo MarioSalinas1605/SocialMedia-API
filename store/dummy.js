@@ -13,10 +13,13 @@ async function get(tabla, id) {
 }
 
 async function upsert(tabla, data) {
+    console.log(tabla);
+    console.log(data);
+    
     return db[tabla].push(data)
 }
 
-function remove(tabla, id) {
+async function remove(tabla, id) {
     return true
 }
 
