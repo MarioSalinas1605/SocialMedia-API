@@ -27,9 +27,18 @@ async function remove(tabla, id) {
     return true
 }
 
+async function query(tabla, q) {
+    let keys = Object.keys(q)
+    let key = keys[0]
+    console.log(key);
+    
+    return db[tabla].filter(item => item[key] === q[key])[0] || null
+}
+
 module.exports = {
     list,
     get,
     upsert,
-    remove
+    remove,
+    query
 }
