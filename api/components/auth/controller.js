@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt')
 const auth = require('../../../auth')
+const error = require('../../../utils/error')
 const TABLE = 'auth'
 
 module.exports = function (injectedStore) {
@@ -15,7 +16,7 @@ module.exports = function (injectedStore) {
         if (arePasswordsEqual) {
             return auth.sign(data)
         }else{
-            throw new Error('Invalid information')
+            throw error('Invalid information')
         }
     }
 
