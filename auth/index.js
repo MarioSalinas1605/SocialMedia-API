@@ -31,10 +31,10 @@ function decodeHeader(req) {
 
 function getToken(auth) {
     if (!auth) {
-        throw error('No token')
+        throw error('No token', 401)
     }
     if (auth.indexOf('Bearer ') === -1) {
-        throw error('Invalid format')
+        throw error('Invalid format', 401)
     }
     let token = auth.replace('Bearer ', '')
     return token
